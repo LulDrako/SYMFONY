@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="welcome-container">
+        <h1>Bonjour {{ app.user.email }}</h1>
+        <p>Bienvenue sur votre espace personnel</p>
+        
+        <div class="actions">
+            <a href="{{ path('app_logout') }}" class="logout-btn">Se déconnecter</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    .welcome-container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .welcome-container h1 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .actions {
+        margin-top: 30px;
+    }
+
+    .logout-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #dc3545;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .logout-btn:hover {
+        background-color: #c82333;
+    }
+</style>
+{% endblock %} 

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Panier{% endblock %}
+
+{% block head %}
+    {{ parent() }} <!-- Inclut les fichiers CSS de base -->
+    <link rel="stylesheet" href="{{ asset('css/panier.css') }}"> <!-- Lien vers le CSS spécifique au panier -->
+{% endblock %}
+
+{% block body %}
+    <h1>Votre Panier</h1>
+    
+    {% if panier %}
+        <ul class="panier-list">
+            {% for id, voiture in panier %}
+                <li class="panier-item">
+                    <span class="voiture-details">{{ voiture.marque }} {{ voiture.modele }} - {{ voiture.prix | number_format(2, ',', ' ') }} €</span>
+                    <form action="{{ path('supprimer_du_panier', {'id': id}) }}" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ path('paiement') }}" class="btn btn-primary">Aller au paiement</a>
+    {% else %}
+        <p>Votre panier est vide.</p>
+    {% endif %}
+{% endblock %}

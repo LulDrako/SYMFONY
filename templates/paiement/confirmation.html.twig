@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation de Paiement{% endblock %}
+
+{% block head %}
+    {{ parent() }} <!-- Inclut les fichiers CSS de base -->
+    <link rel="stylesheet" href="{{ asset('css/panier.css') }}"> <!-- Lien vers le CSS spécifique au paiement -->
+{% endblock %}
+
+{% block body %}
+    <h1>Merci pour votre achat !</h1>
+    <p>Votre paiement a été reçu et votre commande est confirmée.</p>
+
+{% endblock %}

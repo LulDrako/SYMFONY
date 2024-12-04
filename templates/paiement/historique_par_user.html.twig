@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Historique des paiements{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <style>
+        .historique-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .paiement-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .paiement-table th, .paiement-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .paiement-table th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+
+        .paiement-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .paiement-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .statut-en-attente {
+            color: orange;
+        }
+
+        .statut-valide {
+            color: green;
+        }
+
+        .statut-refuse {
+            color: red;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="historique-container">
+        <h1>Historique des paiements</h1>
+        
+        {% if paiements is empty %}
+            <p>Aucun paiement n'a été effectué.</p>
+        {% else %}
+            <table class="paiement-table">
+                <thead>
+                    <tr>
+                        <th>Voiture</th>
+                        <th>Montant</th>
+                        <th>Méthode de paiement</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for paiement in paiements %}
+                        <tr>
+                            <td>{{ paiement.voiture.marque }} {{ paiement.voiture.modele }}</td>
+                            <td>{{ paiement.montant|number_format(2, ',', ' ') }} €</td>
+                            <td>{{ paiement.methodePaiement }}</td>
+                            <td class="statut-{{ paiement.statut|lower }}">{{ paiement.statut }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+{% endblock %}

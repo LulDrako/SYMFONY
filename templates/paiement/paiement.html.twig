@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/panier.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h1>Formulaire de Paiement</h1>
+    
+    {% if panier is not empty %}
+        {% if app.user %}
+            <form action="{{ path('valider_paiement') }}" method="POST" class="payment-form">
+                <p>Utilisateur : {{ app.user.email }} (ID : {{ app.user.id }})</p>
+                <input type="hidden" id="user_id" name="user_id" value="{{ app.user.id }}">
+
+                <label for="montant">Montant :</label>
+                <input type="number" id="montant" name="montant" value="{{ total }}" readonly placeholder="Montant à payer">
+
+                <label for="methode_paiement">Méthode de paiement :</label>
+                <select id="methode_paiement" name="methode_paiement">
+                    <option value="carte">Carte bancaire</option>
+                    <option value="paypal">PayPal</option>
+                </select>
+
+                <label for="numero_carte_bleu">Numéro de Carte Bleue :</label>
+                <input type="text" id="numero_carte_bleu" name="numero_carte_bleu" required placeholder="Entrez le numéro de votre carte">
+
+                {% for voiture in panier %}
+                    <input type="hidden" id="voiture_id" name="voiture_id[]" value="{{ voiture.id }}" />
+                {% endfor %}
+
+                <button type="submit" class="submit-button">Payer</button>
+            </form>
+        {% else %}
+            <p>Veuillez vous connecter pour accéder à cette page de paiement.</p>
+        {% endif %}
+    {% else %}
+        <p>Votre panier est vide. Veuillez ajouter une voiture à votre panier.</p>
+    {% endif %}
+{% endblock %}

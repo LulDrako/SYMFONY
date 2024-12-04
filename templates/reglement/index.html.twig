@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Règlement de Vente de Voitures{% endblock %}
+
+{% block head %}
+    {{ parent() }} <!-- Inclut les fichiers CSS de base -->
+   <link rel="stylesheet" href="{{ asset('css/reglement.css') }}"> <!-- Lien vers le CSS spécifique au panier -->
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Règlement de Vente de Voitures</h1>
+        <p>Bienvenue sur notre plateforme de vente de voitures ! Pour garantir une expérience d'achat sécurisée et agréable pour tous, veuillez lire attentivement notre règlement :</p>
+        
+        <ol>
+            <li>
+                <strong>Respectez les autres utilisateurs :</strong>
+                <p>Traitez les autres acheteurs et vendeurs avec respect. Tout comportement inapproprié ne sera pas toléré.</p>
+            </li>
+            <li>
+                <strong>Information honnête :</strong>
+                <p>Fournissez des informations précises et honnêtes concernant les véhicules que vous vendez, y compris leur état, le kilométrage et le prix.</p>
+            </li>
+            <li>
+                <strong>Conditions de paiement :</strong>
+                <p>Respectez les conditions de paiement convenues. Utilisez uniquement les méthodes de paiement sécurisées recommandées par notre plateforme.</p>
+            </li>
+            <li>
+                <strong>Livraison et Retours :</strong>
+                <p>Assurez-vous que les détails de livraison sont clairement communiqués. En cas de retour, suivez notre procédure de retour établie.</p>
+            </li>
+            <li>
+                <strong>Respect des lois :</strong>
+                <p>Conformez-vous à toutes les lois et réglementations en vigueur concernant la vente et l'achat de véhicules.</p>
+            </li>
+        </ol>
+
+        <p>En cas de non-respect de ce règlement, des mesures appropriées peuvent être prises, y compris la suspension ou la résiliation de votre compte.</p>
+
+        <p>Merci de votre compréhension et de votre collaboration pour faire de notre communauté de vente de voitures une expérience agréable et sécurisée pour tous !</p>
+    </div>
+{% endblock %}
+

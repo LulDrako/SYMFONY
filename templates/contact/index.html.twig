@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block head %}
+    {{ parent() }} <!-- Inclut les fichiers CSS de base -->
+        <link rel="stylesheet" href="{{ asset('css/contact.css') }}"><!-- Lien vers le CSS spécifique au paiement -->
+{% endblock %}
+
+{% block body %}
+    <main class="contact-container">
+        <h1>L'équipe de développement</h1>
+        <br>
+        <div class="contact-photos">
+            <a href="https://www.linkedin.com/in/abder-bess/">
+                <img src="https://media.licdn.com/dms/image/v2/D4E35AQGE2G9uf_kw-A/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1727784293364?e=1730851200&v=beta&t=xfJUDvMsGalIyAXtsbp-9qL09iTE6IjmTgccLZQ_Esg" alt="Abder Bess" class="contact-image">
+            </a>
+            <a href="https://www.linkedin.com/in/ilyès-manai-a76649266/">
+                <img src="https://media.licdn.com/dms/image/v2/D4E35AQGMkh94JMoVTw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1724474732435?e=1730851200&v=beta&t=fp6K_s59rFcZBhZK0Qk2wZAfj742xZIZhH3mOoS8EPU" alt="Ilyès Manai" class="contact-image">
+            </a>
+            <a href="https://www.linkedin.com/in/ervin-goby-b52b25235/">
+                <img src="https://media.licdn.com/dms/image/v2/D4E35AQHabs_X83QYCg/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1700214075352?e=1730851200&v=beta&t=Gcdhar0Ymc6_iJZfV8923toAI-eoAIVNRykq7OEVFBw" alt="Ervin Goby" class="contact-image">
+            </a>
+        </div>
+    </main>
+{% endblock %}

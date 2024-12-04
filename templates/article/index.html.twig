@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Voitures{% endblock %}
+
+{% block head %}
+    {{ parent() }} <!-- Inclut les fichiers CSS de base -->
+    <link rel="stylesheet" href="{{ asset('css/article.css') }}"> <!-- Lien vers le CSS spécifique aux voitures -->
+{% endblock %}
+
+{% block body %}
+    <h1>Nos Voitures Disponibles</h1>
+    <div class="voitures">
+        {% for voiture in voitures %}
+            <div class="voiture">
+                <h2>{{ voiture.marque }} {{ voiture.modele }}</h2>
+                <p>Prix: {{ voiture.prix | number_format(2, ',', ' ') }} €</p>
+                {% if voiture.imageUrl %}
+                    <a href="{{ path('ajouter_au_panier', {'id': voiture.id}) }}">
+                        <img src="{{ voiture.imageUrl }}" alt="{{ voiture.marque }} {{ voiture.modele }}" class="voiture-image">
+                    </a>
+                {% else %}
+                    <p><em>Aucune image disponible</em></p>
+                {% endif %}
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+
+.container {
+
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #007bff;
+}
+
+p {
+    line-height: 1.6;
+}
+
+ol {
+    padding-left: 20px;
+}
