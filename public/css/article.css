@@ -1,12 +1,10 @@
 
-/* Style du titre */
 h1 {
     text-align: center;
     color: #333;
     margin-top: 30px;
 }
 
-/* Conteneur pour les voitures */
 .voitures {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -16,7 +14,6 @@ h1 {
     max-width: 1200px;
 }
 
-/* Style de chaque voiture */
 .voiture {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -27,27 +24,23 @@ h1 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Effet au survol de la voiture */
 .voiture:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Style du titre de chaque voiture */
 .voiture h2 {
     font-size: 1.4em;
     color: #333;
     margin-bottom: 10px;
 }
 
-/* Style de la description du prix de chaque voiture */
 .voiture p {
     font-size: 1.1em;
     color: #666;
     margin-bottom: 15px;
 }
 
-/* Style de l'image de la voiture */
 .voiture-image {
     max-width: 100%;
     height: auto;
@@ -56,18 +49,15 @@ h1 {
     transition: transform 0.3s ease;
 }
 
-/* Effet au survol de l'image */
 .voiture-image:hover {
     transform: scale(1.05);
 }
 
-/* Style pour l'absence d'image */
 em {
     font-style: italic;
     color: #999;
 }
 
-/* Style de la ligne de séparation entre les voitures */
 hr {
     border: 1px solid #ddd;
     margin: 10px 0;

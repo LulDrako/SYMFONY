@@ -1,3 +1,5 @@
+<!-- header.html.twig -->
+<link rel="stylesheet" href="{{ asset('css/header.css') }}">
 <nav>
     <ul>
         <li><a href="{{ path('app_home') }}">Accueil</a></li>
@@ -6,12 +8,10 @@
         <li><a href="{{ path('reglement') }}">Règlement</a></li>
 
         {% if app.user %}
-            <!-- Partie utilisateur alignée à droite -->
             <li style="margin-left: auto;">Bonjour {{ app.user.name }}</li>
             <li><a href="{{ path('historique_paiement') }}">Historique des paiements</a></li>
             <li><a href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
         {% else %}
-            <!-- Connexion et inscription alignés à droite -->
             <li style="margin-left: auto;"><a href="{{ path('app_login') }}">Connexion</a></li>
         {% endif %}
     </ul>

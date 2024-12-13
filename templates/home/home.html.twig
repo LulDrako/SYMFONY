@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - O.C.A Voitures{% endblock %}
+
+{% block body %}
+    <!-- Titre principal -->
+    <h1>Bienvenue sur O.C.A Voitures</h1>
+            
+    <!-- Paragraphe descriptif -->
+    <p>Découvrez nos derniers articles et vidéos pour en apprendre davantage sur nos services et actualités.</p>
+
+    <!-- Conteneur de la vidéo -->
+    <div class="video-container">
+        <!-- Exemple de vidéo -->
+        <video controls>
+            <source src="{{ asset('videos/video.mp4') }}" type="video/mp4">
+            Votre navigateur ne prend pas en charge la vidéo.
+        </video>
+    </div>
+{% endblock %}

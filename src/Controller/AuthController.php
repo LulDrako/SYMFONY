@@ -25,7 +25,6 @@ class AuthController extends AbstractController
     #[Route('/dashboard', name: 'some_success_route')]
     public function dashboard(): Response
     {
-        // Vérifier si l'utilisateur est connecté
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         
         return $this->render('auth/dashboard.html.twig');
@@ -34,7 +33,6 @@ class AuthController extends AbstractController
     #[Route('/login', name: 'app_login', methods: ['GET'])]
     public function showLoginForm(AuthenticationUtils $authenticationUtils): Response
     {
-        // Obtenir la dernière erreur d'authentification s'il y en a une
         $error = $authenticationUtils->getLastAuthenticationError();
         
         return $this->render('auth/login.html.twig', [
@@ -61,20 +59,15 @@ class AuthController extends AbstractController
                 throw new AuthenticationException('Invalid password');
             }
 
-            // Créer le token d'authentification
             $token = new UsernamePasswordToken(
                 $user,
-                'main', // firewall name
+                'main',
                 $user->getRoles()
             );
 
-            // Définir le token dans le contexte de sécurité
             $this->container->get('security.token_storage')->setToken($token);
-
-            // Créer la session
             $request->getSession()->set('_security_main', serialize($token));
 
-            // Rediriger vers le dashboard
             return $this->redirectToRoute('some_success_route');
 
         } catch (AuthenticationException $e) {
@@ -85,8 +78,6 @@ class AuthController extends AbstractController
     #[Route('/logout', name: 'app_logout')]
     public function logout(): void
     {
-        // Cette méthode peut rester vide, 
-        // Symfony gère la déconnexion automatiquement
         throw new \Exception('Don\'t forget to activate logout in security.yaml');
     }
 
@@ -103,21 +94,17 @@ class AuthController extends AbstractController
         $email = $data['email'] ?? null;
         $password = $data['password'] ?? null;
 
-        // Vérifier si l'utilisateur existe déjà
         $existingUser = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
         if ($existingUser) {
             return $this->redirectToRoute('app_register', ['error' => 'User already exists']);
         }
 
-        // Créer un nouvel utilisateur
         $user = new User();
         $user->setEmail($email);
         
-        // Hasher le mot de passe avant de le stocker
         $hashedPassword = $this->passwordHasher->hashPassword($user, $password);
         $user->setPassword($hashedPassword);
 
-        // Sauvegarder dans la base de données
         $this->entityManager->persist($user);
         $this->entityManager->flush();
 

@@ -1,4 +1,3 @@
-/* Style global */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +11,6 @@ body {
     line-height: 1.6;
 }
 
-/* HEADER */
 nav {
     background-color: #333;
     color: #fff;
@@ -43,14 +41,12 @@ nav ul li a:hover {
     color: #00bfff;
 }
 
-/* Partie droite du header */
 nav ul li:last-child,
 nav ul li:nth-last-child(2),
 nav ul li:nth-last-child(3) {
     margin-left: auto;
 }
 
-/* Titre principal */
 h1 {
     color: #0085dd;
     text-align: center;
@@ -66,7 +62,6 @@ h1:hover {
     color: #005bb5;
 }
 
-/* Texte descriptif */
 p {
     font-size: 1.2rem;
     color: #555;
@@ -76,7 +71,6 @@ p {
     line-height: 1.8;
 }
 
-/* Conteneur de la vidéo */
 .video-container {
     width: 80%;
     max-width: 600px;
@@ -86,16 +80,14 @@ p {
     overflow: hidden;
 }
 
-/* Vidéo */
 .video-container video {
     width: 100%;
     height: auto;
     border-radius: 10px;
     object-fit: cover;
-    pointer-events: none; /* Désactiver les contrôles utilisateur */
+    pointer-events: none; 
 }
 
-/* Animation en survol */
 .video-container:hover {
     transform: scale(1.03);
     transition: transform 0.3s ease;

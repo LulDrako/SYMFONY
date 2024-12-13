@@ -2,37 +2,38 @@
 nav {
     background-color: #333;
     color: #fff;
-    padding: 10px 20px;
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
-    width: 100%;
-}
-
-nav ul li {
-    position: relative;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s ease;
+    padding: 10px;
+    transition: background-color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #00bfff;
+    background-color: #00bfff;
+    border-radius: 5px;
 }
 
-/* Alignement des éléments utilisateur à droite */
-nav ul li:last-child,
-nav ul li:nth-last-child(2),
-nav ul li:nth-last-child(3) {
-    margin-left: auto;
+main {
+    margin-top: 70px; 
 }

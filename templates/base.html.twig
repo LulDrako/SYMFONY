@@ -5,34 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}O.C.A Voitures{% endblock %}</title>
     
-    <!-- Lien vers les fichiers CSS -->
+    <!-- Styles globaux (communs à toutes les pages) -->
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
-
+    
+    <!-- Styles spécifiques aux pages -->
+    {% block head %}{% endblock %}
 </head>
 <body>
-    <!-- Inclure le header -->
+    <!-- Header global, présent sur toutes les pages -->
     {% include 'includes/header.html.twig' %}
 
-    <!-- Section principale -->
-    {% block body %}
-        <main>
-            <!-- Titre principal -->
-            <h1>Bienvenue sur O.C.A Voitures</h1>
-            
-            <!-- Paragraphe descriptif -->
-            <p>Découvrez nos derniers articles et vidéos pour en apprendre davantage sur nos services et actualités.</p>
-
-            <!-- Conteneur de la vidéo -->
-            <div class="video-container">
-                <!-- Exemple de vidéo -->
-                <video controls>
-                    <source src="{{ asset('videos/video.mp4') }}" type="video/mp4">
-                    Votre navigateur ne prend pas en charge la vidéo.
-                </video>
-            </div>
-        </main>
-    {% endblock %}
-
+    <main>
+        {% block body %}{% endblock %}
+    </main>
 </body>
 </html>

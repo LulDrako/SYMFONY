@@ -1,0 +1,120 @@
+/* Corps de la page */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #007bff, #6c757d); /* Fond inchangé */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Conteneur principal */
+form {
+    background: #fff; /* Fond blanc pour contraster avec l'arrière-plan */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+}
+
+/* En-tête du formulaire */
+form h2 {
+    margin-bottom: 20px;
+    color: #007bff; /* Couleur du texte pour correspondre au fond */
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Texte d'introduction */
+form p {
+    margin-bottom: 20px;
+    color: #666; /* Texte plus doux */
+    font-size: 1rem;
+}
+
+/* Champs du formulaire */
+form div {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Légère lueur */
+    outline: none;
+}
+
+/* Bouton de connexion */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #0056b3;
+    transform: scale(1.05); /* Effet de zoom léger */
+}
+
+/* Lien d'inscription */
+p a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+p a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Messages d'erreur */
+form p[style="color: red;"] {
+    font-size: 0.9rem;
+    color: #d9534f; /* Rouge plus moderne */
+    margin-top: 10px;
+}
+
+/* Effet d'ombrage subtil */
+form::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    z-index: -1;
+}

@@ -1,4 +1,3 @@
-/* Style global */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +11,6 @@ body {
     line-height: 1.6;
 }
 
-/* Titre principal */
 h1 {
     color: #0085dd;
     text-align: center;
@@ -28,7 +26,6 @@ h1:hover {
     color: #005bb5;
 }
 
-/* Texte du paragraphe */
 p {
     font-size: 1.2rem;
     color: #555;
@@ -38,7 +35,6 @@ p {
     line-height: 1.8;
 }
 
-/* Conteneur de la vidéo */
 .video-container {
     width: 90%;
     max-width: 800px;
@@ -53,16 +49,14 @@ p {
     transform: scale(1.05);
 }
 
-/* Vidéo elle-même */
 .video-container video {
     width: 100%;
     height: auto;
     border-radius: 10px;
 }
 
-/* Ajouter un effet de fond */
 body {
-    background-image: url('background.jpg'); /* Image de fond */
+    background-image: url('background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

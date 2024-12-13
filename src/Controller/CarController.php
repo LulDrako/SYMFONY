@@ -17,16 +17,12 @@ class CarController extends AbstractController
     #[Route('/car/buy/{id}', name: 'car_buy')]
     public function buy(Car $car): Response
     {
-        // Vérifier si l'utilisateur est connecté
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         
-        // Récupérer l'utilisateur connecté
         $user = $this->getUser();
         
-        // Associer la voiture à l'utilisateur
         $car->setUser($user);
         
-        // Sauvegarder en base de données
         $this->entityManager->persist($car);
         $this->entityManager->flush();
 
@@ -34,4 +30,4 @@ class CarController extends AbstractController
         
         return $this->redirectToRoute('car_list');
     }
-} 
+}

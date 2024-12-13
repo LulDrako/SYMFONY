@@ -17,7 +17,6 @@ class PaiementController extends AbstractController
         private EntityManagerInterface $entityManager
     ) {}
 
-    // Affichage du panier
     #[Route('/panier', name: 'panier')]
     public function panier(SessionInterface $session): Response
     {
@@ -27,11 +26,9 @@ class PaiementController extends AbstractController
         ]);
     }
 
-    // Affichage du formulaire de paiement
     #[Route('/paiement', name: 'paiement')]
     public function paiement(SessionInterface $session): Response
     {
-        // Vérifier si l'utilisateur est connecté
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         $panier = $session->get('panier', []);
@@ -44,7 +41,6 @@ class PaiementController extends AbstractController
         ]);
     }
 
-    // Validation du paiement
     #[Route('/valider-paiement', name: 'valider_paiement', methods: ['POST'])]
     public function validerPaiement(
         Request $request, 
@@ -59,7 +55,6 @@ class PaiementController extends AbstractController
             ]);
         }
 
-        // Récupération de l'utilisateur connecté
         $user = $this->getUser();
 
         if (!$user) {
@@ -72,7 +67,6 @@ class PaiementController extends AbstractController
         $methode_paiement = $request->request->get('methode_paiement');
         $numero_carte_bleu = $request->request->get('numero_carte_bleu');
 
-        // Vérification des voitures dans le panier
         $voiture = reset($panier);
         $voitureId = $voiture['id'];
 
@@ -84,7 +78,6 @@ class PaiementController extends AbstractController
             ]);
         }
 
-        // Enregistrement du paiement
         $paiement = new Paiement();
         $paiement->setMontant($montant);
         $paiement->setMethodePaiement($methode_paiement);
@@ -96,20 +89,17 @@ class PaiementController extends AbstractController
         $entityManager->persist($paiement);
         $entityManager->flush();
 
-        // Suppression du panier après paiement
         $session->remove('panier');
 
         return $this->redirectToRoute('confirmation');
     }
 
-    // Page de confirmation du paiement
     #[Route('/confirmation', name: 'confirmation')]
     public function confirmation(): Response
     {
         return $this->render('paiement/confirmation.html.twig');
     }
 
-    // Affichage de l'historique de paiements pour l'utilisateur connecté
     #[Route('/historique-paiement', name: 'historique_paiement')]
     public function historiquePaiement(EntityManagerInterface $entityManager): Response
     {
