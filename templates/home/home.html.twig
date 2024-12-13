@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Accueil - O.C.A Voitures{% endblock %}
+{% block head %}
+    {{ parent() }} <!-- Inclut les fichiers CSS de base -->
+        <link rel="stylesheet" href="{{ asset('css/home.css') }}"><!-- Lien vers le CSS spécifique au paiement -->
+{% endblock %}
 
 {% block body %}
     <!-- Titre principal -->
@@ -12,9 +16,10 @@
     <!-- Conteneur de la vidéo -->
     <div class="video-container">
         <!-- Exemple de vidéo -->
-        <video controls>
-            <source src="{{ asset('videos/video.mp4') }}" type="video/mp4">
-            Votre navigateur ne prend pas en charge la vidéo.
-        </video>
+        <video autoplay muted loop>
+    <source src="{{ asset('videos/video.mp4') }}" type="video/mp4">
+    Votre navigateur ne prend pas en charge la vidéo.
+</video>
+
     </div>
 {% endblock %}
